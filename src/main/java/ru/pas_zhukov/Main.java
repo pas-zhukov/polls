@@ -1,17 +1,39 @@
 package ru.pas_zhukov;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import ru.pas_zhukov.models.Poll;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Poll poll = Poll.builder()
+                .withPollName("Programming Survey")
+                .yesNoPollQuestion("Are you programmer?")
+                .oneVariantPollQuestion("How many years of programming experience do you have?")
+                .withAnswerVariant("0-1 years")
+                .withAnswerVariant("1-3 years")
+                .withAnswerVariant("3-5 years")
+                .withAnswerVariant("5+ years")
+                .and()
+                .oneVariantPollQuestion("What is your favorite programming language?")
+                .withAnswerVariant("Java")
+                .withAnswerVariant("Python")
+                .withAnswerVariant("C++")
+                .and()
+                .oneVariantPollQuestion("Do you like your job?")
+                .withMinAnswers(0)
+                .withMaxAnswers(1)
+                .withAnswerVariant("Who knows..")
+                .withAnswerVariant("Of course")
+                .and()
+                .pollQuestion("What are your strong qualities?")
+                .withMinAnswers(0)
+                .withMaxAnswers(5)
+                .withAnswerVariant("Leadership")
+                .withAnswerVariant("Teamwork")
+                .withAnswerVariant("Problem-solving")
+                .withAnswerVariant("Communication")
+                .withAnswerVariant("Creativity")
+                .and()
+                .build();
+        System.out.println(poll);
     }
 }
