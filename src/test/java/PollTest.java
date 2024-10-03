@@ -1,9 +1,10 @@
-package ru.pas_zhukov;
-
+import org.junit.Test;
 import ru.pas_zhukov.models.Poll;
 
-public class Main {
-    public static void main(String[] args) {
+public class PollTest {
+
+    @Test
+    public void testPollBuilding() {
         Poll poll = Poll.builder()
                 .withPollName("Programming Survey")
                 .yesNoPollQuestion("Are you programmer?")
