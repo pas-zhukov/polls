@@ -9,7 +9,7 @@ public class PollQuestion {
     private String title;
     private Integer minAnswers;
     private Integer maxAnswers;
-    private List<String> answers;
+    private final List<String> answers;
 
     public PollQuestion(String title, Integer minAnswers, Integer maxAnswers, List<String> answers) {
         this.title = title;

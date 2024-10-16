@@ -5,8 +5,8 @@ import ru.pas_zhukov.models.PollQuestion;
 import java.util.ArrayList;
 
 public class PollQuestionBuilder {
-    private PollQuestion question;
-    private PollBuilder pollBuilder;
+    private final PollQuestion question;
+    private final PollBuilder pollBuilder;
 
     public PollQuestionBuilder(PollBuilder pollBuilder) {
         this.question = new PollQuestion("Empty title question", 0, 1, new ArrayList<>());

@@ -6,7 +6,7 @@ import ru.pas_zhukov.models.PollQuestion;
 import java.util.ArrayList;
 
 public class PollBuilder {
-    private Poll poll;
+    private final Poll poll;
 
     public PollBuilder() {
         poll = new Poll("Unnamed poll", new ArrayList<>());

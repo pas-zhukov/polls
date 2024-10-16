@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Poll {
     private String pollName;
-    private List<PollQuestion> pollQuestionList;
+    private final List<PollQuestion> pollQuestionList;
 
     public Poll(String pollName, List<PollQuestion> pollQuestionList) {
         this.pollName = pollName;
