@@ -1,23 +1,44 @@
 package ru.pas_zhukov.builders;
 
+import ru.pas_zhukov.models.PollQuestion;
+
+import java.util.ArrayList;
+
 public class PollQuestionBuilder {
-    PollQuestionBuilder withTitle(String title) {
-        return null;
+    private final PollQuestion question;
+    private final PollBuilder pollBuilder;
+
+    public PollQuestionBuilder(PollBuilder pollBuilder) {
+        this.question = new PollQuestion("Empty title question", 0, 1, new ArrayList<>());
+        this.pollBuilder = pollBuilder;
     }
 
-    PollQuestionBuilder withMinAnswers(int minAnswers) {
-        return null;
+    public PollQuestionBuilder withTitle(String title) {
+        question.setTitle(title);
+        return this;
     }
 
-    PollQuestionBuilder withMaxAnswers(int maxAnswers) {
-        return null;
+    public PollQuestionBuilder withMinAnswers(int minAnswers) {
+        question.setMinAnswers(minAnswers);
+        return this;
     }
 
-    PollQuestionBuilder withAnswerVariant(String answerVariant) {
-        return null;
+    public PollQuestionBuilder withMaxAnswers(int maxAnswers) { // TODO: добавить проверки!
+        question.setMaxAnswers(maxAnswers);
+        return this;
     }
 
-    PollBuilder and() {
-        return null;
+    public PollQuestionBuilder withAnswerVariant(String answerVariant) {
+        question.addAnswer(answerVariant);
+        return this;
+    }
+
+    public PollBuilder and() {
+        PollQuestion pollQuestion = this.buildQuestion();
+        return pollBuilder.addQuestion(pollQuestion);
+    }
+
+    public PollQuestion buildQuestion() {
+        return question;
     }
 }
