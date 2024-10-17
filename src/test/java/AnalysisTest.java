@@ -1,5 +1,4 @@
-package ru.pas_zhukov;
-
+import org.junit.Test;
 import ru.pas_zhukov.analysis.PollAnalyzer;
 import ru.pas_zhukov.analysis.strategy.AnalyzeStrategy;
 import ru.pas_zhukov.analysis.strategy.FullCountStrategy;
@@ -12,8 +11,9 @@ import ru.pas_zhukov.util.DataGenerator;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Main {
-    public static void main(String[] args) {
+public class AnalysisTest {
+    @Test
+    public void analyzerBasicUsage() {
         Poll poll = DataGenerator.generateDefaultPoll();
         List<PollFillingData> pollFillingDataList = IntStream.range(0, 50)
                 .mapToObj(i -> DataGenerator.generateRandomFillingData(poll))
