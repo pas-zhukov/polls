@@ -2,10 +2,8 @@ package ru.pas_zhukov.analysis;
 
 import ru.pas_zhukov.models.PollFillingData;
 import ru.pas_zhukov.models.PollQuestion;
-import ru.pas_zhukov.models.PollQuestionResponse;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Класс для хранения статистики по вопросам

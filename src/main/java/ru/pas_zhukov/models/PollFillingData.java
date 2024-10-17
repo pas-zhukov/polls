@@ -3,15 +3,14 @@ package ru.pas_zhukov.models;
 import java.util.List;
 
 
-
 public class PollFillingData {
-    private String username;
-    private List<PollQuestionResponse> responses;
+    private final String username;
+    private final List<PollQuestionResponse> responses;
 
     /**
      * Результат заполнения опроса пользователем
      *
-     * @param username логин пользователя
+     * @param username  логин пользователя
      * @param responses список ответов пользователя
      */
     public PollFillingData(String username, List<PollQuestionResponse> responses) {

@@ -3,12 +3,13 @@ package ru.pas_zhukov.models;
 import java.util.List;
 
 public class PollQuestionResponse {
-    private PollQuestion pollQuestion;
+    private final PollQuestion pollQuestion;
     List<String> selectedVariants;
 
     /**
      * Ответ на вопрос опроса
-     * @param pollQuestion вопрос
+     *
+     * @param pollQuestion     вопрос
      * @param selectedVariants выбранные варианты ответа
      */
     public PollQuestionResponse(PollQuestion pollQuestion, List<String> selectedVariants) {

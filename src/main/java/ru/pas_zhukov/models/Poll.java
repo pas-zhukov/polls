@@ -2,7 +2,6 @@ package ru.pas_zhukov.models;
 
 import ru.pas_zhukov.builders.PollBuilder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Poll {
@@ -31,14 +30,14 @@ public class Poll {
     }
 
     public static PollBuilder builder() {
-       return new PollBuilder();
+        return new PollBuilder();
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(String.format("Опрос: %s\n", pollName));
-        for (PollQuestion question: pollQuestionList) {
+        for (PollQuestion question : pollQuestionList) {
             builder.append(question).append("\n");
         }
         return builder.toString();

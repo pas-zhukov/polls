@@ -32,7 +32,7 @@ public class DataGenerator {
             responses.add(new PollQuestionResponse(question, selectedVariants));
         }
 
-        return new PollFillingData("User №" + random.nextInt(),responses);
+        return new PollFillingData("User №" + random.nextInt(), responses);
     }
 
     public static Poll generateDefaultPoll() {
