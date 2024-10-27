@@ -17,7 +17,7 @@ public class LeastFrequentAnswerStrategy implements AnalyzeStrategy {
             report.append("Question: ")
                     .append(questionStatistics.getQuestionTitle())
                     .append("\n");
-            Map.Entry<String, Integer> mostFrequentAnswer = questionStatistics.getMostFrequentAnswer();
+            Map.Entry<String, Integer> mostFrequentAnswer = questionStatistics.getLeastFrequentAnswer();
             report.append("Least Frequent Answer: ")
                     .append(mostFrequentAnswer.getKey())
                     .append("\n")
