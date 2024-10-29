@@ -1,6 +1,7 @@
 package ru.pas_zhukov;
 
 import ru.pas_zhukov.analysis.PollAnalyzer;
+import ru.pas_zhukov.analysis.PollAnalyzerProxy;
 import ru.pas_zhukov.analysis.strategy.AnalyzeStrategy;
 import ru.pas_zhukov.analysis.strategy.FullCountStrategy;
 import ru.pas_zhukov.analysis.strategy.LeastFrequentAnswerStrategy;
@@ -23,7 +24,8 @@ public class Main {
         AnalyzeStrategy leastFrequentAnswerStrategy = new LeastFrequentAnswerStrategy();
         AnalyzeStrategy mostFrequentAnswerStrategy = new MostFrequentAnswerStrategy();
 
-        PollAnalyzer analyzer = new PollAnalyzer(fullCountStrategy);
+        PollAnalyzer delegateAnalyzer = new PollAnalyzer(fullCountStrategy);
+        PollAnalyzer analyzer = new PollAnalyzerProxy(delegateAnalyzer);
         analyzer.analyzePoll(pollFillingDataList);
 
         analyzer.changeAnalyzerStrategy(leastFrequentAnswerStrategy);
