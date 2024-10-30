@@ -31,8 +31,4 @@ public class PollAnalyzer {
         return getQuestionsStatistics(pollFillingDataList);
     }
 
-    public AnalyzeStrategy getStrategy() {
-        return strategy;
-    }
-
 }

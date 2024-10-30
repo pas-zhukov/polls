@@ -3,6 +3,7 @@ package ru.pas_zhukov.analysis;
 import ru.pas_zhukov.analysis.strategy.AnalyzeStrategy;
 import ru.pas_zhukov.models.PollFillingData;
 
+import java.lang.reflect.Field;
 import java.time.Instant;
 import java.util.List;
 import java.util.logging.Logger;
@@ -14,8 +15,16 @@ public class PollAnalyzerProxy extends PollAnalyzer {
     private final PollAnalyzer delegate;
 
     public PollAnalyzerProxy(PollAnalyzer pollAnalyzer) {
-        super(pollAnalyzer.getStrategy());
+        super(null);
         delegate = pollAnalyzer;
+        Field strategyField = null;
+        try {
+            strategyField = pollAnalyzer.getClass().getDeclaredField("strategy");
+            strategyField.setAccessible(true);
+            this.changeAnalyzerStrategy((AnalyzeStrategy) strategyField.get(delegate));
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -33,8 +42,4 @@ public class PollAnalyzerProxy extends PollAnalyzer {
         logger.info("Analysis took: " + (end.toEpochMilli() - start.toEpochMilli()) + " ms");
     }
 
-    @Override
-    public AnalyzeStrategy getStrategy() {
-        return delegate.getStrategy();
-    }
 }
