@@ -11,13 +11,13 @@ import ru.pas_zhukov.util.DataGenerator;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static ru.pas_zhukov.PollLifecycleFacade.*;
+
 public class AnalysisTest {
     @Test
     public void analyzerBasicUsage() {
-        Poll poll = DataGenerator.generateDefaultPoll();
-        List<PollFillingData> pollFillingDataList = IntStream.range(0, 50)
-                .mapToObj(i -> DataGenerator.generateRandomFillingData(poll))
-                .toList();
+        Poll poll = createPoll();
+        List<PollFillingData> pollFillingDataList = getUserResponses(poll);
 
         AnalyzeStrategy fullCountStrategy = new FullCountStrategy();
         AnalyzeStrategy leastFrequentAnswerStrategy = new LeastFrequentAnswerStrategy();
